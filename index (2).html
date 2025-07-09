@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire - Guia Completo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #FF5733;
+            --secondary: #33B5FF;
+            --dark: #1A1A2E;
+            --light: #F1F1F1;
+            --accent: #FFD700;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .theme-dark {
+            --primary: #FF5733;
+            --secondary: #33B5FF;
+            --dark: #1A1A2E;
+            --light: #F1F1F1;
+            background-color: var(--dark);
+            color: var(--light);
+        }
+        
+        .theme-light {
+            --primary: #E74C3C;
+            --secondary: #3498DB;
+            --dark: #F8F9FA;
+            --light: #2C3E50;
+            background-color: var(--dark);
+            color: var(--light);
+        }
+        
+        .theme-orange {
+            --primary: #FF851B;
+            --secondary: #85144B;
+            --dark: #111111;
+            --light: #DDDDDD;
+            background-color: var(--dark);
+            color: var(--light);
+        }
+        
+        .game-title {
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 0 0 10px var(--primary);
+        }
+        
+        .card {
+            background: linear-gradient(145deg, rgba(30, 30, 46, 0.8) 0%, rgba(26, 26, 46, 0.9) 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: scale(1.05);
+        }
+        
+        .border-primary {
+            border-color: var(--primary);
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        
+        .player-card {
+            background: linear-gradient(135deg, rgba(255, 87, 51, 0.2) 0%, rgba(51, 181, 255, 0.2) 100%);
+            border: 2px solid var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 15px;
+            width: 1px;
+            height: calc(100% - 15px);
+            background-color: var(--primary);
+        }
+        
+        .highlight-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .footer {
+            background: linear-gradient(90deg, rgba(26, 26, 46, 0.9) 0%, rgba(30, 30, 46, 0.95) 100%);
+        }
+        
+        .game-icon {
+            transition: all 0.3s;
+            filter: drop-shadow(0 0 5px var(--primary));
+        }
+        
+        .game-icon:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .game-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="theme-dark">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/77089f3d-63cb-45e2-b5ca-e7ab75e3de2a.png" alt="Free Fire Logo" class="w-10 h-10 rounded-full border-2 border-primary">
+                <h1 class="game-title text-xl">FREE FIRE</h1>
+            </div>
+            <div class="flex space-x-4">
+                <button onclick="changeTheme('theme-dark')" class="w-5 h-5 rounded-full bg-gray-800 border-2 border-blue-500"></button>
+                <button onclick="changeTheme('theme-light')" class="w-5 h-5 rounded-full bg-gray-200 border-2 border-gray-400"></button>
+                <button onclick="changeTheme('theme-orange')" class="w-5 h-5 rounded-full bg-orange-500 border-2 border-orange-700"></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto px-4 relative z-10 flex flex-col justify-center h-96 text-center">
+            <h1 class="game-title text-4xl md:text-5xl mb-4">GUIA <span class="highlight-text">FREE FIRE</span></h1>
+            <p class="text-xl max-w-2xl mx-auto">Estratégias, dicas e tudo sobre o jogo battle royale mais popular do mundo!</p>
+            <div class="mt-6 flex justify-center space-x-4">
+                <a href="#game-info" class="btn-primary px-6 py-2 rounded-full">Sobre o Jogo</a>
+                <a href="#player-stats" class="btn-primary px-6 py-2 rounded-full">Meu Perfil</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Player Profile Section -->
+        <section id="player-stats" class="mb-16">
+            <h2 class="game-title text-3xl mb-8 text-center"><span class="highlight-text">MEU PERFIL</span> NO FREE FIRE</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="player-card w-full md:w-1/3 card p-6">
+                    <div class="flex flex-col items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/595587ee-a23b-4231-ac8e-41d5292f3721.png" alt="Free Fire Player Character - Elite Agent skin with blue armor and futuristic helmet" class="w-40 h-40 rounded-full border-4 border-primary mb-4">
+                        <h3 class="text-2xl font-bold mb-2">Empurra veia_FF</h3>
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary px-3 py-1 rounded-full text-sm font-bold">Diamante III</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 mb-4 w-full">
+                            <div class="text-center">
+                                <div class="text-xl font-bold">752</div>
+                                <div class="text-sm opacity-80">Vitórias</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-xl font-bold">4.2K</div>
+                                <div class="text-sm opacity-80">Eliminações</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-xl font-bold">2.1</div>
+                                <div class="text-sm opacity-80">K/D</div>
+                            </div>
+                        </div>
+                        <p class="text-center opacity-90 mb-4">"Jogador agressivo que domina combates a curta distância. Especialista em SMGs e estratégias de flanco."</p>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-2/3">
+                    <div class="card p-6 mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-primary">EQUIPAMENTOS PREFERIDOS</h3>
+                        <div class="grid grid-cols-2 md:grid-cs-3 gap-4">
+                            <div class="flex items-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6ccecb49-443d-431f-8e91-17278903ce49.png" alt="MP40 - Submachine Gun" class="w-12 h-12 mr-3">
+                                <div>
+                                    <h4 class="font-bold">MP40</h4>
+                                    <p class="text-sm opacity-80">Taxa de tiro incrível</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/29a6db4e-3269-488d-9d47-330250f9d888.png" alt="M1014 - Shotgun" class="w-12 h-12 mr-3">
+                                <div>
+                                    <h4 class="font-bold">M1014</h4>
+                                    <p class="text-sm opacity-80">Melhor em combate próximo</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7198ae53-719c-456a-a6f6-bf46783d9c7a.png" alt="Level 3 Armor" class="w-12 h-12 mr-3">
+                                <div>
+                                    <h4 class="font-bold">Colete Nível 3</h4>
+                                    <p class="text-sm opacity-80">Prioridade máxima</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4bf7ed2d-020f-459b-8a35-3afb47692692.png" alt="Medkit" class="w-12 h-12 mr-3">
+                                <div>
+                                    <h4 class="font-bold">Kit Médico</h4>
+                                    <p class="text-sm opacity-80">Sempre carrego 3+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <h3 class="text-xl font-bold mb-4 text-primary">ESTATÍSTICAS RECENTES</h3>
+                        <div class="flex flex-col space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Precisão de tiro</span>
+                                    <span>42%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 42%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Sobrevivência</span>
+                                    <span>68%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 68%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Dano por jogo</span>
+                                    <span>3200</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-red-500 h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Info Section -->
+        <section id="game-info" class="mb-16">
+            <h2 class="game-title text-3xl mb-8 text-center">SOBRE O <span class="highlight-text">FREE FIRE</span></h2>
+            
+            <div class="card p-6 mb-8">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold mb-4 text-primary">O QUE É FREE FIRE?</h3>
+                        <p class="mb-4">Free Fire é um jogo battle royale para mobile onde até 50 jogadores caem em uma ilha remota e lutam para ser o último sobrevivente. Os jogadores procuram armas, itens e veículos enquanto a zona segura diminui, forçando confrontos.</p>
+                        <p>Desenvolvido pela Garena, Free Fire se tornou um fenômeno global, especialmente em mercados emergentes, por seu baixo requisito de hardware e gameplay rápido e intenso.</p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/nBf52UpDc_I?si=vd_ngGmClfxK1aXk&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="card p-6">
+                    <div class="text-4xl text-primary mb-3">50</div>
+                    <h3 class="text-xl font-bold mb-2">JOGADORES</h3>
+                    <p class="opacity-90">Em cada partida, até 50 jogadores competem para ser o último sobrevivente.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="text-4xl text-primary mb-3">30+</div>
+                    <h3 class="text-xl font-bold mb-2">ARMAS</h3>
+                    <p class="opacity-90">Diversas opções de armas, desde pistolas até rifles de precisão.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="text-4xl text-primary mb-3">10+</div>
+                    <h3 class="text-xl font-bold mb-2">PERSONAGENS</h3>
+                    <p class="opacity-90">Cada personagem tem habilidades únicas que afetam o gameplay.</p>
+                </div>
+            </div>
+            
+            <div class="card p-6">
+                <h3 class="text-2xl font-bold mb-4 text-primary">MÚSICAS DO JOGO</h3>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex-1">
+                        <div class="bg-gray-800 rounded-lg p-4 flex items-center">
+                            <button id="playBtn" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mr-4">
+                                <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </button>
+                            <div>
+                                <h4 class="font-bold">Trilha Sonora Oficial</h4>
+                                <p class="text-sm opacity-80">Free Fire Theme</p>
+                            </div>
+                        </div>
+                        <audio id="gameMusic" loop>
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-gray-800 rounded-lg p-4 flex items-center">
+                            <button id="playBtn2" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mr-4">
+                                <svg id="playIcon2" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <svg id="pauseIcon2" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </button>
+                            <div>
+                                <h4 class="font-bold">Battle Music</h4>
+                                <p class="text-sm opacity-80">Combate intenso</p>
+                            </div>
+                        </div>
+                        <audio id="gameMusic2" loop>
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gameplay Tips Section -->
+        <section class="mb-16">
+            <h2 class="game-title text-3xl mb-8 text-center"><span class="highlight-text">DICAS</span> E <span class="highlight-text">ESTRATÉGIAS</span></h2>
+            
+            <div class="card p-6 mb-8">
+                <h3 class="text-2xl font-bold mb-6 text-primary">TIMELINE DE UMA PARTIDA</h3>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-lg mb-1">Início da Partida</h4>
+                        <p class="opacity-90">Escolha seu local de queda com cuidado - áreas centrais geralmente têm melhor loot mas mais inimigos.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-lg mb-1">Primeiros 5 minutos</h4>
+                        <p class="opacity-90">Colete armas, coletes e kits médicos rapidamente. Fique atento a sons de passos e tiros próximos.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-lg mb-1">Meio da Partida</h4>
+                        <p class="opacity-90">Monte sua estratégia baseada na zona segura - se mova cedo ou espere inimigos se movendo.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-lg mb-1">Final da Partida</h4>
+                        <p class="opacity-90">Priorize posição em vez de eliminações. Use granadas e cobertura inteligentemente contra os últimos jogadores.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols 2 gap-6 mb-8">
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-4 text-primary">MELHORES LOCAIS PARA DROP</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">1</span>
+                            <div>
+                                <h4 class="font-bold">Bermuda</h4>
+                                <p class="text-sm opacity-80">Loot excelente mas muito disputado. Ideal para jogadores agressivos.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">2</span>
+                            <div>
+                                <h4 class="font-bold">Pochinok</h4>
+                                <p class="text-sm opacity-80">Equilíbrio entre loot e número de jogadores. Boa para estratégias balanceadas.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">3</span>
+                            <div>
+                                <h4 class="font-bold">Mill</h4>
+                                <p class="text-sm opacity-80">Mais seguro com loot decente. Bom para iniciantes ou jogadores cautelosos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-4 text-primary">HABILIDADES DE PERSONAGENS</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d7861482-62a2-4136-8745-4fd5bfc451a1.png" alt="Alok Character - DJ with healing abilities" class="w-8 h-8 rounded-full mr-3 mt-1">
+                            <div>
+                                <h4 class="font-bold">Alok</h4>
+                                <p class="text-sm opacity-80">Drop the Beat: Cria uma aura que cura aliados e aumenta velocidade de movimento.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/484c8dad-7724-4b5c-ad10-992e08ff8522.png" alt="Chrono Character - Futuristic soldier with shield ability" class="w-8 h-8 rounded-full mr-3 mt-1">
+                            <div>
+                                <h4 class="font-bold">Chrono</h4>
+                                <p class="text-sm opacity-80">Time Turner: Cria um escudo que bloqueia dano recebido e causado.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0643b798-7845-46de-9684-088f0c0b6f78.png" alt="Jota Character - Parkour specialist" class="w-8 h-8 rounded-full mr-3 mt-1">
+                            <div>
+                                <h4 class="font-bold">Jota</h4>
+                                <p class="text-sm opacity-80">Sustained Raids: Eliminações com SMGs regeneram HP.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card p-6">
+                <h3 class="text-2xl font-bold mb-4 text-primary">MANHAS AVANÇADAS</h3>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Glitch de Escalada</h4>
+                        <p class="mb-2 opacity-90">Em certos locais, é possível escalar paredes normalmente intransponíveis pulando enquanto se move contra elas repetidamente.</p>
+                        <div class="bg-gray-800 rounded-lg p-3 text-sm font-mono">
+                            // Técnica: Pule contra a parede enquanto se move para os lados
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Snap Shot</h4>
+                        <p class="mb-2 opacity-90">Ao atirar com sniper, você pode mirar rapidamente e atirar antes que o escopo completamente abra, surpreendendo inimigos.</p>
+                        <div class="bg-gray-800 rounded-lg p-3 text-sm font-mono">
+                            // Técnica: Mire e atire quase simultaneamente
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Drop Silencioso</h4>
+                        <p class="mb-2 opacity-90">Quando caindo de lugares altos, segurar o botão de agachar reduz drasticamente o som da aterrissagem.</p>
+                        <div class="bg-gray-800 rounded-lg p-3 text-sm font-mono">
+                            // Técnica: Segure crouch (agachar) durante a queda
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comments Section -->
+        <section class="mb-16">
+            <h2 class="game-title text-3xl mb-8 text-center"><span class="highlight-text">COMENTÁRIOS</span> DA COMUNIDADE</h2>
+            
+            <div class="card p-6">
+                <div class="space-y-6">
+                    <div class="comment p-4 border-b border-gray-700">
+                        <div class="flex items-start mb-3">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3ea4479e-6894-4bbf-b513-12618996bd32.png" alt="FFProPlayer avatar" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <div class="flex items-center">
+                                    <h4 class="font-bold mr-2">FFProPlayer</h4>
+                                    <span class="text-xs bg-yellow-600 px-2 py-0.5 rounded-full">Pro Player</span>
+                                </div>
+                                <div class="text-xs opacity-70">Postado em: 15/06/2024</div>
+                            </div>
+                        </div>
+                        <p class="opacity-90 mb-2">Finalmente cheguei ao Mestre esta temporada! Minha principal dica é dominar pelo menos 2 tipos de armas diferentes para se adaptar a qualquer situação de loot.</p>
+                        <div class="flex space-x-4 text-sm">
+                            <button class="text-primary flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                                </svg>
+                                245
+                            </button>
+                            <button class="opacity-70 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                                </svg>
+                                Responder
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="comment p-4 border-b border-gray-700">
+                        <div class="flex items-start mb-3">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/db80c293-3819-4d33-aa89-9d48aa1c114c.png" alt="SniperQueen avatar" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <div class="flex items-center">
+                                    <h4 class="font-bold mr-2">SniperQueen</h4>
+                                    <span class="text-xs bg-purple-600 px-2 py-0.5 rounded-full">Sniper Expert</span>
+                                </div>
+                                <div class="text-xs opacity-70">Postado em: 10/06/2024</div>
+                            </div>
+                        </div>
+                        <p class="opacity-90 mb-2">Para jogadores que preferem combate a distância, a nova AWM está incrível nesta atualizaçãããão mas cuidado com o recuo! Recomendo praticar no treino antes de ir para ranqueada.</p>
+                        <div class="flex space-x-4 text-sm">
+                            <button class="text-primary flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                                </svg>
+                                189
+                            </button>
+                            <button class="opacity-70 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                                </svg>
+                                Responder
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <h4 class="font-bold mb-3">ADICIONE SEU COMENTÁRIO</h4>
+                        <textarea class="w-full bg-gray-800 rounded-lg p-3 mb-3 focus:outline-none focus:ring-2 focus:ring-primary" rows="3" placeholder="Compartilhe suas estratégias, dicas ou experiências..."></textarea>
+                        <button class="btn-primary px-6 py-2 rounded-full">ENVIAR</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Gallery -->
+        <section class="mb-16">
+            <h2 class="game-title text-3xl mb-8 text-center"><span class="highlight-text">GALERIA</span> DO JOGO</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4dde9be8-e9c2-4ec4-9213-9b2af31e2ebb.png" alt="Free Fire Battle Royale scene - Four players engaging in intense combat near warehouse buildings with orange sunset in background" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-1">Combate Intenso</h4>
+                        <p class="text-sm opacity-80">Pochinok - Partida Ranqueada</p>
+                    </div>
+                </div>
+                <div class="card overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fec8f8df-f6b1-4d4a-af73-39d6af3b2dfb.png" alt="Free Fire Victory Screen - EliteAgent_FF character celebrating win with golden trophy and confetti falling" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-1">Vitória Épica</h4>
+                        <p class="text-sm opacity-80">Rank Diamante III</p>
+                    </div>
+                </div>
+                <div class="card overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/09f4bd1f-619e-4879-9fd4-1f0ab3a9a2fe.png" alt="Free Fire Squad Gameplay - Team of four characters strategizing near vehicles in snowy mountain area" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-1">Jogo em Equipe</h4>
+                        <p class="text-sm opacity-80">Montanhas Geladas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2e2d2c48-c790-4551-a2c9-7b10036b9236.png" alt="Free Fire Logo" class="w-10 h-10 rounded-full border-2 border-primary">
+                        <h1 class="game-title text-xl">FREE FIRE</h1>
+                    </div>
+                    <p class="opacity-80 max-w-md">Free Fire é o jogo battle royale mobile mais popular do mundo. Junte-se a milhões de jogadores nesta emocionante experiência de sobrevivência.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="font-bold text-lg mb-4 text-primary">LINKS</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="opacity-80 hover:opacity-100">Site Oficial</a></li>
+                            <li><a href="#" class="opacity-80 hover:opacity-100">Download</a></li>
+                            <li><a href="#" class="opacity-80 hover:opacity-100">Eventos</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-4 text-primary">SOCIAL</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="opacity-80 hover:opacity-100">Instagram</a></li>
+                            <li><a href="#" class="opacity-80 hover:opacity-100">YouTube</a></li>
+                            <li><a href="#" class="opacity-80 hover:opacity-100">Facebook</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-4 text-primary">AJUDA</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="opacity-80 hover:opacity-100">Suporte</a></li>
+                            <li><a href="#" class="opacity-80 hover:opacity-100">FAQ</a></li>
+                            <li><a href="#" class="opacity-80 hover:opacity-100">Comunidade</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center opacity-70">
+                <p>© 2024 Free Fire Guide. Não afiliado à Garena. Este é um projeto demonstrativo.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme switching
+        function changeTheme(themeName) {
+            document.body.className = themeName;
+        }
+        
+        // Music player functionality
+        const gameMusic = document.getElementById('gameMusic');
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        
+        const gameMusic2 = document.getElementById('gameMusic2');
+        const playBtn2 = document.getElementById('playBtn2');
+        const playIcon2 = document.getElementById('playIcon2');
+        const pauseIcon2 = document.getElementById('pauseIcon2');
+        
+        playBtn.addEventListener('click', () => {
+            if (gameMusic.paused) {
+                gameMusic.play();
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            } else {
+                gameMusic.pause();
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            }
+        });
+        
+        playBtn2.addEventListener('click', () => {
+            if (gameMusic2.paused) {
+                gameMusic2.play();
+                playIcon2.classList.add('hidden');
+                pauseIcon2.classList.remove('hidden');
+            } else {
+                gameMusic2.pause();
+                playIcon2.classList.remove('hidden');
+                pauseIcon2.classList.add('hidden');
+            }
+        });
+        
+        // Ensure only one music plays at a time
+        gameMusic.addEventListener('play', () => {
+            gameMusic2.pause();
+            playIcon2.classList.remove('hidden');
+            pauseIcon2.classList.add('hidden');
+        });
+        
+        gameMusic2.addEventListener('play', () => {
+            gameMusic.pause();
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+```
+
